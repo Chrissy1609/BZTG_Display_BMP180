@@ -44,5 +44,7 @@ tft.fill(st7789.CYAN)
 line = 0
 col = 0
 while True:
-    ausgabe = str(round(bmp.temperature,2))
-    tft.text(font, ausgabe, 10, 10, st7789.YELLOW, st7789.CYAN)
+    ausgabe = str(round(bmp.temperature,0))
+    tft.text(font, ausgabe, 10, 10, st7789.BLACK, st7789.CYAN)
+    ausgabe2 = str(round((bmp.pressure / 100),0))
+    tft.text(font, ausgabe2, 10, 30, st7789.BLACK, st7789.CYAN)
