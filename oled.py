@@ -41,12 +41,6 @@ rotLED   = Pin(27, Pin.OUT)
 line = 0                                                                # Zeile                                         (werden hier überschrieben)
 col = 0                                                                 # Spalte                                        (werden hier überschrieben)
 while True:                                                             
-    ausgabe = str(round(bmp.temperature,1))                             # ausgabe der Temperatur in string 
-    ausgabe = str(ausgabe + ' \xf8C')
-    tft.text(font, ausgabe, 10, 10, st7789.WHITE, st7789.BLACK)
-    luftDruck = str(round(bmp.pressure / 100,1))
-    ausgabe2 = str(luftDruck + ' hPa') 
-    tft.text(font, ausgabe2, 10, 30, st7789.WHITE, st7789.BLACK)         # Schrift = Weiß, Schrifthintergrund = Schwarz
     if bmp.temperature < 24:
         tft.fill(st7789.GREEN)    
         gruenLED.value(1)
@@ -62,4 +56,9 @@ while True:
         gruenLED.value(0)
         gelbLED.value(0)
         rotLED.value(1)    
-    
+    ausgabe = str(round(bmp.temperature,1))                             # ausgabe der Temperatur in string 
+    ausgabe = str(ausgabe + ' \xf8C')
+    tft.text(font, ausgabe, 10, 10, st7789.WHITE, st7789.BLACK)
+    luftDruck = str(round(bmp.pressure / 100,1))
+    ausgabe2 = str(luftDruck + ' hPa') 
+    tft.text(font, ausgabe2, 10, 30, st7789.WHITE, st7789.BLACK)         # Schrift = Weiß, Schrifthintergrund = Schwarz    
