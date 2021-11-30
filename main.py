@@ -1,1 +1,3 @@
-import oled 
+import oled  # herreinladen von dem Programm oeld
+
+    
